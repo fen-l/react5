@@ -7,6 +7,15 @@ import { LayoutCard } from './components/ui/LayoutCard';
 
 function App() {
   const [name, setName] = useState('');
+  const [loading, setLoading] = useState(false);
+
+const handleSave = () => {
+    setLoading(true);
+
+    setTimeout(() => {
+        setLoading(false);
+    }, 2000);
+};
 
   return (
       <div
@@ -19,7 +28,10 @@ function App() {
         <LayoutCard
             title="Система мониторинга"
             footer={
-              <Button variant="primary">
+              <Button variant="primary"
+              isLoading={loading}
+              onClick={handleSave}
+              >
                 Сохранить
               </Button>
             }
